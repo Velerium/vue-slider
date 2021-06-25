@@ -25,7 +25,7 @@
                 </div>
                 <div class="col-9">
                     <img :src="img[counter]" alt="">
-                    <div class="centered-small"><i v-for="pictures in img" :class="colorSelect" class="fas fa-circle"></i></div>
+                    <div class="centered-small"><i v-for="(pictures, index) in img" :class="colorSelect(index)" class="fas fa-circle" @click="colorClick(index)"></i></div>
                 </div>
                 <div class="centered col">
                     <i @click="nextPic" class="fas fa-chevron-right"></i>

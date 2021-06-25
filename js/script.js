@@ -11,7 +11,7 @@ new Vue (
             ],
             counter: 0,
             interval: 5000,
-            colorSelect: '',
+            selectedCircle: false,
         },
 
         created() {
@@ -20,9 +20,16 @@ new Vue (
 
         methods: {
 
+            colorSelect: function(index) {
+                if (index === this.counter) {
+                    return 'color';
+                } else {
+                    return '';
+                }
+            },
+
             nextPic: function() {
-                clearInterval(window.imgTimer);
-                this.timer();
+                this.intervalClear();
                 this.counter++;
                 if (this.counter === this.img.length) {
                     this.counter = 0;
@@ -30,9 +37,8 @@ new Vue (
             },
 
             prevPic: function() {
-                clearInterval(window.imgTimer);
-                this.timer();
-                this.counter--
+                this.intervalClear();
+                this.counter--;
                 if (this.counter === -1) {
                     this.counter = this.img.length - 1;
                 }
@@ -44,10 +50,18 @@ new Vue (
                     if (this.counter === this.img.length) {
                         this.counter = 0;
                     }
-                    for (picture in img) {
-                        this.colorSelect = 'color'
-                    }
                 }, this.interval);
+            },
+
+            colorClick: function(index) {
+                this.intervalClear();
+                this.counter = index;
+                this.colorSelect();
+            },
+
+            intervalClear: function() {
+                clearInterval(window.imgTimer);
+                this.timer();
             }
 
         },
