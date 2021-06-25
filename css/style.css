@@ -1,0 +1,51 @@
+.container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.row, img {
+    width: 100%;
+}
+
+img {
+    height: 530px;
+    border-radius: 15px;
+}
+
+.col-9 {
+    position: relative;
+}
+
+.centered, .centered-small {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.centered {
+    font-size: 40px;
+}
+
+.centered-small {
+    font-size: 20px;
+    position: absolute;
+    top: 95%;
+    left: 50%;
+    transform: translate(-50%, -100%);
+}
+
+.centered i {
+    color: #666;
+}
+
+.centered-small i {
+    margin: 0 10px;
+    color: #fff;
+}
+
+.centered-small i.color {
+    color: dodgerblue;
+}
+

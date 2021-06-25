@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Bootstrap & FAS -->
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+    
+    <div id="app">
+
+        <div class="container">
+            <div class="row">
+                <div class="centered col">
+                    <i @click="prevPic" class="fas fa-chevron-left"></i>
+                </div>
+                <div class="col-9">
+                    <img :src="img[counter]" alt="">
+                    <div class="centered-small"><i v-for="pictures in img" :class="colorSelect" class="fas fa-circle"></i></div>
+                </div>
+                <div class="centered col">
+                    <i @click="nextPic" class="fas fa-chevron-right"></i>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="./js/script.js"></script>
+</body>
+</html>
