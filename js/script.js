@@ -10,8 +10,8 @@ new Vue (
                 'https://images.unsplash.com/photo-1515896769750-31548aa180ed?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8bG9zJTIwYW5nZWxlc3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'   
             ],
             counter: 0,
-            interval: 5000,
             selectedCircle: false,
+            interval: null,
         },
 
         created() {
@@ -45,12 +45,12 @@ new Vue (
             },
 
             timer: function() {
-                window.imgTimer = setInterval(() => {
+                this.interval = setInterval(() => {
                     this.counter++
                     if (this.counter === this.img.length) {
                         this.counter = 0;
                     }
-                }, this.interval);
+                }, 5000);
             },
 
             colorClick: function(index) {
@@ -60,10 +60,21 @@ new Vue (
             },
 
             intervalClear: function() {
-                clearInterval(window.imgTimer);
+                clearInterval(this.interval);
                 this.timer();
+                this.animation();
+            },
+
+            animation: function () {
+                document.querySelectorAll('.animated').forEach ((element) => {
+                    element.style.animation = 'none';
+                    element.offsetHeight; // random attribute, this triggers reflow
+                    element.style.animation = null;
+                })
             }
 
         },
     }
 )
+
+// ADD PROGRESS BAR FOR TIMER, TRANSITIONS BETWEEN IMGS...

@@ -11,11 +11,13 @@
 
 img {
     height: 530px;
-    border-radius: 15px;
 }
 
 .col-9 {
     position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    padding: 0;
 }
 
 .centered, .centered-small {
@@ -36,6 +38,22 @@ img {
     transform: translate(-50%, -100%);
 }
 
+.progress-bar {
+    height: 5px;
+    position: absolute;
+    bottom: 0;
+    background-color: firebrick;
+    animation: width 5s linear infinite;
+}
+
+img {
+    animation: appear 5s linear infinite;
+}
+
+.progress-bar {
+    animation: width 5s linear infinite;
+}
+
 .centered i {
     color: #666;
 }
@@ -47,5 +65,30 @@ img {
 
 .centered-small i.color {
     color: dodgerblue;
+}
+
+@keyframes width {
+
+    0% {
+        width: 0;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+    }
+
+    10%, 90% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
 }
 
